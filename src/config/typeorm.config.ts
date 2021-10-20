@@ -20,13 +20,13 @@ export const typeOrmConfig: TypeOrmModuleAsyncOptions = {
 
         // synchronize definition
 
-        Boolean synch = true;
+        let synch = true;
         let mode = configService.get<string>('NODE_ENV');
         if (mode != 'development_no_migration') synch = false;
 
         // dropped DB definition
 
-        Boolean drop = false;
+        let drop = false;
         if (synch) drop = Boolean(+ConfigService.get('DROP_DATABASE'));
 
         return {
